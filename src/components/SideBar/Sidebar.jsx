@@ -7,37 +7,32 @@ const navList = [
         path: "/",
         title: "Home"
     },
-
-    {
-        path: "/about",
-        title: "About"
-    },
-    {
-        path: "/blogs",
-        title: "Blogs"
-    },
     {
         path: "/dashboard",
         title: "Dashboard"
     },
     {
-        path: "/contact-us",
-        title: "Contact Us"
+        path: "/dashboard/profile",
+        title: "Profile"
+    },
+    {
+        path: "/dashboard/add-products",
+        title: "Add Products"
+    },
+    {
+        path: "/dashboard/manage-products",
+        title: "Manage Products"
     }
-
 ]
 
-
-const NavBar = () => {
-
-    
+const Sidebar = () => {
     return (
-        <nav className='bg-gray-200'>
-            <div className='container mx-auto p-4 flex justify-between items-center'>
+        <aside className='bg-gray-200'>
+            <div className='container mx-auto p-4 flex flex-col'>
                 <div>
-                    <h1 className='font-bold'>NextNinja</h1>
+                    <h1 className='font-bold'>Dashboard</h1>
                 </div>
-                <ul className='flex justify-between items-center'>
+                <ul className='flex flex-col py-4'>
                     {
                         navList.map(({path, title}) => <li key={path}>
                             <Button variant="link" asChild>
@@ -46,12 +41,9 @@ const NavBar = () => {
                         </li>)
                     }
                 </ul>
-                <div>
-                    <Button variant="default">Login</Button>
-                </div>
             </div>
-        </nav>
+        </aside>
     );
 };
 
-export default NavBar;
+export default Sidebar;
