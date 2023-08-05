@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../ui/button';
-import Link from 'next/link';
+import NavLink from '../NavLink/NavLink';
 
 const navList = [
     {
@@ -30,7 +30,7 @@ const navList = [
 
 const NavBar = () => {
 
-    
+
     return (
         <nav className='bg-gray-200'>
             <div className='container mx-auto p-4 flex justify-between items-center'>
@@ -39,9 +39,14 @@ const NavBar = () => {
                 </div>
                 <ul className='flex justify-between items-center'>
                     {
-                        navList.map(({path, title}) => <li key={path}>
+                        navList.map(({ path, title }) => <li key={path}>
                             <Button variant="link" asChild>
-                                <Link href={path}>{title}</Link>
+                                <NavLink
+                                    exact={path === "/"}
+                                    activeClassName="text-blue-500 underline"
+                                    href={path}>
+                                    {title}
+                                </NavLink>
                             </Button>
                         </li>)
                     }

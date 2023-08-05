@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '../ui/button';
-import Link from 'next/link';
+
+import NavLink from '../NavLink/NavLink';
 
 const navList = [
     {
@@ -34,9 +35,14 @@ const Sidebar = () => {
                 </div>
                 <ul className='flex flex-col py-4'>
                     {
-                        navList.map(({path, title}) => <li key={path}>
+                        navList.map(({ path, title }) => <li key={path}>
                             <Button variant="link" asChild>
-                                <Link href={path}>{title}</Link>
+                                <NavLink
+                                    exact
+                                    activeClassName="text-blue-500 underline"
+                                    href={path}>
+                                    {title}
+                                </NavLink>
                             </Button>
                         </li>)
                     }
